@@ -116,9 +116,8 @@ function Airplane(name) {
           + Should return a string "Playing with x", x being the favorite toy.
   */
  function Baby(name, age, favoriteToy) { //Is babyAttributes and object with name, age, and favoriteToy??
- 
-  Person.call(this, name, age);
-   this.favoriteToy = favoriteToy;
+    Person.call(this, name, age);
+    this.favoriteToy = favoriteToy;
   }
   Baby.prototype = Object.create(Person.prototype);
 
@@ -140,9 +139,9 @@ function Airplane(name) {
 
     2. If the function is a "new" object, "this" is the constructor.
 
-    3. If the function is called by .call, .apply, or .bind, "this" is the calling object.
+    3. If the function is called by .call, .apply, or .bind, "this" is the calling object (explicit binding).
     
-    4. If the function is a method of an object, "this" refers to that object.
+    4. If the function is a method of an object, "this" refers to that object (implicit bindind).
   */
   
   
