@@ -135,10 +135,14 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    
+    1. If the function is called in the global scope (at the top level of code), this is the global object, or "undefined" if "use strict".
+
+    2. If the function is a "new" object, "this" is the constructor.
+
+    3. If the function is called by .call, .apply, or .bind, "this" is the calling object.
+    
+    4. If the function is a method of an object, "this" refers to that object.
   */
   
   
