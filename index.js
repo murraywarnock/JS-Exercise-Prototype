@@ -88,10 +88,25 @@ function Airplane(name) {
     this.tank += gallons;
   };
   Car.prototype.drive = function(distance) {
-    this.odometer += distance;
-    tank =- (distance /this.milesPerGallon)
+    if ((distance / this.milesPerGallon) <= this.tank) {    //Sufficient fuel
+      this.odometer += distance;
+      console.log()
+      this.tank -= (distance / this.milesPerGallon)  
+    } else {                                                //Outta gas
+      let stallDistance = (this.tank * this.milesPerGallon)
+      this.odometer += stallDistance;
+      console.log
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`; 
+    }
   };
   
+  // const myVW = new Car("Bug", 16);
+  // myVW.fill(8);
+  // myVW.drive(37);
+  // console.log(myVW);
+  // console.log(myVW.drive(98));
+  // console.log(myVW);
   
   /*
     TASK 3
@@ -100,21 +115,23 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby(babyAttributes) { //Is babyAttributes and object with name, age, and favoriteToy??
-   Person.call(this, babyAttributes);
-   this.toy = babyAttributes.favoriteToy;
+ function Baby(name, age, favoriteToy) { //Is babyAttributes and object with name, age, and favoriteToy??
+ 
+  Person.call(this, name, age);
+   this.favoriteToy = favoriteToy;
   }
+  Baby.prototype = Object.create(Person.prototype);
+
   Baby.prototype.play = function() {
     return `Playing with ${this.favoriteToy}`;
   };
-  Baby.prototype = Object.create(Person.prototype);
-
-  // function Child(childAttributes) {
-  //   Person.call(this, childAttributes); // binding this to Person
-  //   this.isChild = childAttributes.isChild; // this will be a special attribute to Child
-  // }
-  // Child.prototype = Object.create(Person.prototype)
   
+  // const myDJ = new Baby("Doug", 26, "slide rule");
+
+  // console.log(myDJ.name);
+  // console.log(myDJ.play());
+
+
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
